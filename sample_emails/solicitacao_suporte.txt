@@ -1,0 +1,6 @@
+Assunto: Solicitação de status do ticket #4321
+
+Olá time,
+Poderiam, por favor, informar o status do meu chamado? Preciso saber o andamento da correção do erro de login que impacta usuários desde 10h.
+Obrigado,
+Cliente

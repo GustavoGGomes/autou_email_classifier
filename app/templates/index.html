@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>AutoU – Classificador de Emails</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/static/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>AutoU – Classificador de Emails</h1>
+        <p class="subtitle">Classifique e gere respostas automáticas para emails (Produtivo × Improdutivo)</p>
+      </header>
+
+      <section class="card">
+        <form action="/process" method="post" enctype="multipart/form-data">
+          <div class="grid">
+            <div>
+              <label for="email_text">Cole o conteúdo do email</label>
+              <textarea id="email_text" name="email_text" placeholder="Cole aqui o texto do email..." rows="10"></textarea>
+            </div>
+            <div>
+              <label for="file">Ou faça upload (.txt ou .pdf)</label>
+              <input type="file" id="file" name="file" accept=".txt,.pdf">
+              <p class="hint">O último campo preenchido tem prioridade.</p>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary">Processar</button>
+        </form>
+        {% if error %}
+          <p class="error">{{ error }}</p>
+        {% endif %}
+      </section>
+
+      {% if result %}
+      <section class="card result">
+        <h2>Resultado</h2>
+        <div class="badge {{ result.analysis.label|lower }}">{{ result.analysis.label }}</div>
+        <div class="probs">
+          <div>Produtivo: <strong>{{ result.analysis.probs['Produtivo'] }}</strong></div>
+          <div>Improdutivo: <strong>{{ result.analysis.probs['Improdutivo'] }}</strong></div>
+          <div>Confiança: <strong>{{ result.analysis.confidence }}</strong></div>
+        </div>
+
+        <h3>Resposta sugerida</h3>
+        <div class="reply">{{ result.reply }}</div>
+
+        <details>
+          <summary>Ver texto processado</summary>
+          <pre class="pre">{{ result.analysis.preprocessed }}</pre>
+        </details>
+
+        <details>
+          <summary>Ver entrada original{% if filename %} ({{ filename }}){% endif %}</summary>
+          <pre class="pre">{{ result.input }}</pre>
+        </details>
+      </section>
+      {% endif %}
+
+      <footer>
+        <p>Feito para o case prático AutoU – por Gustavo Gomes</p>
+      </footer>
+    </div>
+  </body>
+</html>
