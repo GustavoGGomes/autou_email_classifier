@@ -47,16 +47,3 @@ autou_email_classifier/
   requirements.txt
   README.md
 ```
-
-## 🎥 Vídeo (roteiro sugerido)
-1. **Introdução (30s)**: quem é você e o objetivo da app.
-2. **Demo (3min)**: abrir no navegador, fazer upload de um `.txt` e um `.pdf`, mostrar classificação e resposta.
-3. **Técnico (1min)**: explicar FastAPI, pré-processamento, heurística + zero-shot, decisões de design.
-4. **Conclusão (30s)**: próximos passos (melhorar fine-tuning, logs, métricas e feedback loop).
-
-## 📌 Próximos Passos (Ideias)
-- Log de decisões do classificador (ex.: quais features/keywords pesaram)
-- Ajuste fino (fine-tuning) com dados reais da empresa
-- Fila assíncrona (Celery/Redis) para alto volume
-- Autenticação e RBAC
-- Conector IMAP/POP3 para ingestão direta de emails
