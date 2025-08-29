@@ -19,17 +19,6 @@ uvicorn app.main:app --reload
 ```
 Acesse: http://127.0.0.1:8000
 
-## ☁️ Deploy (sugestões)
-- **Render**: Web Service (Python) com `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-- **Hugging Face Spaces**: Gradio é mais simples, mas aqui mantivemos HTML. Alternativamente, suba como Space _Static + FastAPI_.
-- **Railway / Fly.io / Azure Web App**: também funcionam.
-
-## 🧠 Modelos de IA
-- **Zero-shot classification**: `facebook/bart-large-mnli` (Transformers pipeline) para decidir entre `Produtivo` e `Improdutivo`.
-- **Geração de resposta**: template orientado a regras + palavras-chave. (Opcional: trocar por `flan-t5-base` se desejar IA generativa).
-
-> Obs.: Para ambientes com menos recursos, você pode **desativar o Transformers** e ficar apenas com a heurística (ver `USE_TRANSFORMERS` em `app/model.py`).
-
 ## 📁 Estrutura
 ```
 autou_email_classifier/
